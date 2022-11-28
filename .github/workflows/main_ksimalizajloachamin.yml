@@ -28,7 +28,7 @@ jobs:
      - name: Install and Test
        run: |
         npm i
-        npm test
+        npm run test -- --include src/app/Persona/listar/listar.component.spec.ts
   build:
   
     needs: test
