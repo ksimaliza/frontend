@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy container app to Azure Web App - ksimalizaloachamin
+name: Build and deploy container app to Azure Web App - ksimalizajloachamin
 
 on:
   push:
@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_5eb8aa24964e4510bdfe0849db63b420 }}/angular:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_5eb8aa24964e4510bdfe0849db63b420 }}/angular:latest
         file: ./Dockerfile
 
   deploy:
@@ -45,7 +45,7 @@ jobs:
       id: deploy-to-webapp
       uses: azure/webapps-deploy@v2
       with:
-        app-name: 'ksimalizaloachamin'
+        app-name: 'ksimalizajloachamin'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_0740c877c0e4429391096c1aa0dbd82c }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_5eb8aa24964e4510bdfe0849db63b420 }}/angular:${{ github.sha }}'
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_5eb8aa24964e4510bdfe0849db63b420 }}/angular:latest'
