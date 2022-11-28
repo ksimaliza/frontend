@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy container app to Azure Web App - ksimalizajloachamin
+name: Build and deploy container app to Azure Web App - ksimalizaloachamin
 
 on:
   push:
@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: https://index.docker.io/v1/
-        username: ${{ secrets.AzureAppService_ContainerUsername_3002fb50ad284a91aeec6246442c7d14 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_6322bff77e21449299d356da39417fa6 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_f2dcffba861c480b938f526f5deff79f }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_172e471681e44772a078a3980a693e78 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_3002fb50ad284a91aeec6246442c7d14 }}/angular:latest
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_f2dcffba861c480b938f526f5deff79f }}/angular:latest
         file: ./Dockerfile
 
   deploy:
@@ -45,7 +45,7 @@ jobs:
       id: deploy-to-webapp
       uses: azure/webapps-deploy@v2
       with:
-        app-name: 'ksimalizajloachamin'
+        app-name: 'ksimalizaloachamin'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_8dcdaa1a1deb4e26b7f9d6649e609bc1 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_3002fb50ad284a91aeec6246442c7d14 }}/angular:latest'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_840efeb4bbab4777b8cb6c3c2ba8f1d7 }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_f2dcffba861c480b938f526f5deff79f }}/angular:latest'
