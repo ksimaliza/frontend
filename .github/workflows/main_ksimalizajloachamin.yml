@@ -28,7 +28,7 @@ jobs:
      - name: Install and Test
        run: |
         npm i
-        npm test -- --watch=false --browsers=ChromeHeadless
+        npm test 
   build:
   
     needs: test
