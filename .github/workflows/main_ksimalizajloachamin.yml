@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_89ad9afb0cf24bd2bd56a330132378ef }}/angular:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_89ad9afb0cf24bd2bd56a330132378ef }}/angular:latest
         file: ./Dockerfile
 
   deploy:
@@ -48,4 +48,4 @@ jobs:
         app-name: 'ksimalizajloachamin'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_1f7c8c15009f4b63a050749bfbf8f243 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_89ad9afb0cf24bd2bd56a330132378ef }}/angular:${{ github.sha }}'
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_89ad9afb0cf24bd2bd56a330132378ef }}/angular:latest'
